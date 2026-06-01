@@ -1,0 +1,13 @@
+= PROMPT_REPRISE — review-gradle (Baltimore)
+
+== Mission en cours
+Session 000 — Bootstrap gouvernance + cadrage architecture.
+
+== État actuel
+- Projet créé : `review-gradle/` + `review-plugin/`
+- Prochaine : Session 001 — Plugin Gradle stub
+
+== Règles
+1. COMMITS/GIT — INTERDIT sans permission
+2. ZERO secret en dur (GITHUB_TOKEN env var)
+3. REVIEW IA ASSISTE, NE REMPLACE PAS HUMAIN

@@ -1,0 +1,60 @@
+= AGENT.adoc — Review Gradle
+
+_Produit_ : Plugin Gradle de code review assistée par IA — PR review, suggestions, quality gates
+_Licence_ : Apache 2.0 (OSS)
+_DAG_ : N4 — Plugin Gradle de gouvernance (consomme le code, pas le pipeline)
+_Dépendance_ : langchain4j (LLM code review), GitHub API (PR access)
+
+== Principe
+
+Le plugin `review` assiste la **code review de PRs** via IA. Il lit le diff de la PR,
+l'analyse avec un LLM (deepseek-v4-pro) et produit un rapport de review structuré :
+anomalies, suggestions d'amélioration, adhérence aux patterns du workspace.
+
+Pipeline :
+  PR diff ──→ IA (LLM) ──→ rapport de review ──→ commentaires PR ──→ quality gates
+
+Cas d'usage :
+- Pre-review IA avant review humaine (gain de temps)
+- Vérification des patterns par borough (conventions AGENT.adoc)
+- Détection des secrets/tokens (Règle 6 workspace)
+- Score de qualité automatique par PR
+- Quality gates : review IA passe → humaine facultative ? Non, toujours humaine
+
+== Règles Absolues
+
+=== 1. COMMITS/GIT — INTERDICTION FORMELLE sans permission
+=== 2. PUBLISH — INTERDICTION FORMELLE sans permission
+=== 3. DAG N4 — consomme GitHub PRs, n'importe aucun borough en compileOnly (standalone)
+=== 4. PROCEDURE DE FIN DE SESSION — 6 ETAPES OBLIGATOIRES
+=== 5. HOOK OUVERTURE — Checklist SESSION_CHECKLIST.adoc obligatoire
+=== 6. ZERO secret/token/api key en dur (⚠️ GITHUB_TOKEN en env var uniquement)
+=== 7. REVIEW IA ASSISTE, NE REMPLACE PAS HUMAIN — la décision finale est humaine
+
+== Tâches Principales
+
+  ./gradlew reviewPr               → analyser une PR (diff + contexte)
+  ./gradlew reviewScore            → calculer le score de qualité auto
+  ./gradlew reviewGate             → vérifier les quality gates configurées
+  ./gradlew reviewReport           → générer le rapport de review (AsciiDoc)
+  ./gradlew check                  → tests
+
+== Stack
+
+- Kotlin — DSL Gradle
+- langchain4j — LLM code review (deepseek-v4-pro)
+- GitHub API (gh CLI wrapper)
+- Jackson — parsing du diff / rapport structuré
+
+== Conventions Vérifiées (Workspace)
+
+- Pas de secrets en dur (Règle 6 AGENTS.adoc)
+- Conventional commits (feat:, fix:, chore:)
+- Patterns par borough (N2 compileOnly vs implementation)
+- Zéro import N3 → N2 (violation DAG)
+- Pas de publish sans permission
+
+== Ne remplace PAS opencode
+
+Le plugin assiste la review, mais la validation humaine (approval PR)
+reste obligatoire. L'IA suggère, l'humain décide.

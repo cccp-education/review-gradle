@@ -1,0 +1,82 @@
+= BACKLOG — Review Gradle (Baltimore)
+:toc:
+
+_Date création_ : 2026-06-01
+_Version_ : 0.1.0-SNAPSHOT
+
+'''
+== Vision Produit
+
+Un plugin Gradle N4 qui **assiste la code review de PRs via IA** (deepseek-v4-pro),
+produit un rapport structuré, vérifie les conventions du workspace et les quality gates.
+
+'''
+== User Stories
+
+=== US-RVW-01 — En tant que reviewer, je veux une pre-review IA qui m'économise du temps
+
+*Priorité* : P1
+*EPIC* : RVW-2
+
+.Critères d'acceptation
+- `reviewPr` prend une PR GitHub (numéro ou URL) et analyse le diff
+- L'IA (deepseek-v4-pro) lit le diff et produit un rapport structuré
+- Le rapport couvre : anomalies, suggestions, secrets, patterns, DAG
+- Le rapport est posté en commentaire sur la PR
+
+=== US-RVW-02 — En tant que reviewer, je veux un score de qualité automatique
+
+*Priorité* : P1
+*EPIC* : RVW-3
+
+.Critères d'acceptation
+- `reviewScore` attribue un score 1-5 basé sur des critères objectifs
+- Critères : secrets détectés, conventional commits, patterns respectés, tests présents, complexité
+- Le score est ajouté au commentaire de la PR
+
+=== US-RVW-03 — En tant que lead dev, je veux des quality gates bloquantes
+
+*Priorité* : P2
+*EPIC* : RVW-3
+
+.Critères d'acceptation
+- `reviewGate` vérifie les règles absolues du workspace (AGENTS.adoc)
+- Gate 1 : aucun secret en dur
+- Gate 2 : conventional commits
+- Gate 3 : pas d'import N3→N2
+- Une gate non passée = PR bloquée (label "needs-fix")
+
+=== US-RVW-04 — En tant que chef de projet, je veux un rapport de review consolidé
+
+*Priorité* : P3
+*EPIC* : RVW-4
+
+.Critères d'acceptation
+- `reviewReport` génère un rapport AsciiDoc par PR
+- Métriques : score, anomalies trouvées, suggestions acceptées/refusées
+- Historique des reviews conservé
+
+'''
+== Dette Technique
+
+[cols="1,5,2", options="header"]
+|===
+| ID | Description | Priorité
+| DT-01 | Aucune — projet neuf | -
+|===
+
+== Risques
+
+[cols="1,3,2,2", options="header"]
+|===
+| ID | Risque | Impact | Probabilité
+| R-01 | Coût tokens LLM pour l'analyse de chaque PR | Moyen | Haute
+| R-02 | Faux positifs (l'IA signale des anomalies qui n'en sont pas) | Faible | Moyenne
+| R-03 | Analyse inefficace sur très gros diff (>1000 lignes) | Moyen | Faible
+|===
+
+== Notes
+
+* L'IA assiste, NE REMPLACE PAS le reviewer humain — l'approval PR reste obligatoire
+* GITHUB_TOKEN obligatoire en env var
+* Peut être invoqué comme GitHub Action ou en local via Gradle CLI
