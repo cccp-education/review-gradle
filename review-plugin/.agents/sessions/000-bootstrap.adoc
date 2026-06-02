@@ -1,0 +1,24 @@
+= Session 000 — Bootstrap review-gradle (Baltimore)
+:date: 2026-06-01
+:type: bootstrap
+:score: 10/10
+:artefacts: AGENT.adoc, BACKLOG.adoc, INDEX.adoc, structure projet, repo GitHub public
+:epic: RVW-0
+
+== Contenu
+
+- Création structure `review-gradle/` + `review-plugin/`
+- `AGENT.adoc` — code review IA, quality gates, secret detection (60 lignes, 7 règles)
+- `BACKLOG.adoc` — 4 user stories RVW-1→RVW-4 (82 lignes)
+- `INDEX.adoc` — roadmap 5 EPICs, portefeuille 18 boroughs
+- `SESSION_CHECKLIST.adoc` — hook ouverture/fermeture
+- `SESSION_PROCEDURE.adoc` — procédure 6 étapes
+- `SESSIONS_HISTORY.adoc` — historique sessions
+- `TEST_COVERAGE_ANALYSIS.adoc` — placeholder
+- Git init + `settings.gradle.kts` + `build.gradle.kts` + `.gitignore`
+- Repo GitHub public Apache 2.0 créé + push (`cheroliv/review-gradle`)
+- Aucun test — bootstrap gouvernance uniquement
+
+== Prochaine session
+
+Session 001 — Plugin Gradle stub + build structure opérationnel (EPIC RVW-1)

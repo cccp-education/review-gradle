@@ -5,9 +5,9 @@ _Règles absolues_ : voir `AGENT.adoc`
 _DAG_ : N4 — Plugin Gradle de code review assistée par IA
 _Dépendance_ : langchain4j (LLM), GitHub API (PR access)
 
-_Dernière mise à jour_ : 2026-06-01 (Session 000 — Bootstrap)
-_Session terminée_ : 000 — Bootstrap gouvernance + cadrage architecture
-_Prochaine session_ : 001 — Implémentation plugin Gradle stub
+_Dernière mise à jour_ : 2026-06-01 (Session 000 — Clôture)
+_Session terminée_ : 000 — Bootstrap gouvernance + cadrage architecture ✅
+_Prochaine session_ : 001 — Plugin Gradle stub (EPIC RVW-1)
 
 == Roadmap
 
