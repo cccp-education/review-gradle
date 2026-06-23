@@ -31,6 +31,29 @@ Cas d'usage :
 === 6. ZERO secret/token/api key en dur (⚠️ GITHUB_TOKEN en env var uniquement)
 === 7. REVIEW IA ASSISTE, NE REMPLACE PAS HUMAIN — la décision finale est humaine
 
+== Loi de l'Économie d'Encre — Non-Répétition des Opérations Coûteuses
+
+*PRINCIPE* : Une opération coûteuse (LLM, inférence cloud, analyse IA de PRs, score de qualité automatique) qui a déjà produit un résultat *valide et persistant* NE DOIT PAS être ré-exécutée sur la même entrée. Le résultat existant est la vérité ; le re-calcul est un gaspillage de tokens/crédits API/temps de build. L'IA n'est pas un générateur idempotent gratuit — c'est un service metered. Re-appeler le LLM pour analyser un diff déjà reviewé et dont le rapport est valide : ce geste consomme du token sans produire de nouvelle connaissance. L'économie d'encre est la condition de viabilité économique du pipeline agentique MVP0.
+
+*RÈGLE* :
+. Avant toute opération coûteuse, **vérifier l'existence d'un artefact résultat** (rapport de review, score de qualité, cache disque, hash du diff stocké).
+. Si l'artefact existe et couvre l'entrée demandée → **réutiliser sans ré-invoquer**.
+. Seul le **delta** (nouveaux commits, diff modifié, PR mise à jour) doit être calculé — jamais l'ensemble.
+. Ne **jamais écraser** un résultat validé par un re-calcul identique. L'écrasement est un symptôme de non-idempotence économique.
+. L'invalidation est **explicite et ciblée** (nouveau commit sur la PR, diff changé), jamais globale par défaut.
+
+*ANTI-PATTERNS SPÉCIFIQUES REVIEW* :
+. *Re-review systématique* : re-appeler le LLM sur une PR dont le diff n'a pas changé depuis la dernière review.
+. *Re-score inconditionnel* : recalculer le score de qualité sur tous les fichiers parce qu'un seul a été modifié.
+. *Cache-busting silencieux* : un `writeText()` qui écrase le rapport de review avant même d'avoir vérifié si le diff a changé.
+
+*PROTECTION* :
+. Lecture avant écriture : charger le rapport de review existant avant de re-analyser ; comparer hash du diff (ou SHA du dernier commit) avec hash stocké en metadata du rapport.
+. Delta review : ne re-analyser que les PRs dont le diff a changé depuis la dernière review (hash/SHA comparison).
+. `DisableCachingByDefault` ne dispense pas de l'idempotence applicative — Gradle ne sait pas ce qu'est une "review déjà valide", seul le domaine le sait.
+
+*RÉFÉRENCE* : Source canonique — `bakery-gradle/bakery-plugin/AGENT.adoc` section "Non-Répétition des Opérations Coûteuses — Loi de l'Économie d'Encre" (Session 153). Portée transverse : 10 boroughs LLM metered. Potentiel 50-80% d'économie LLM sur le pipeline MVP0 complet.
+
 == Tâches Principales
 
   ./gradlew reviewPr               → analyser une PR (diff + contexte)
