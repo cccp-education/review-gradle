@@ -8,7 +8,7 @@ _Dépendance_ : langchain4j (LLM code review), GitHub API (PR access)
 == Principe
 
 Le plugin `review` assiste la **code review de PRs** via IA. Il lit le diff de la PR,
-l'analyse avec un LLM (deepseek-v4-pro) et produit un rapport de review structuré :
+l'analyse avec un LLM (gpt-oss:120b-cloud) et produit un rapport de review structuré :
 anomalies, suggestions d'amélioration, adhérence aux patterns du workspace.
 
 Pipeline :
@@ -65,7 +65,7 @@ Cas d'usage :
 == Stack
 
 - Kotlin — DSL Gradle
-- langchain4j — LLM code review (deepseek-v4-pro)
+- langchain4j — LLM code review (gpt-oss:120b-cloud)
 - GitHub API (gh CLI wrapper)
 - Jackson — parsing du diff / rapport structuré
 

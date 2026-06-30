@@ -7,7 +7,7 @@ _Version_ : 0.1.0-SNAPSHOT
 '''
 == Vision Produit
 
-Un plugin Gradle N4 qui **assiste la code review de PRs via IA** (deepseek-v4-pro),
+Un plugin Gradle N4 qui **assiste la code review de PRs via IA** (gpt-oss:120b-cloud),
 produit un rapport structuré, vérifie les conventions du workspace et les quality gates.
 
 '''
@@ -20,7 +20,7 @@ produit un rapport structuré, vérifie les conventions du workspace et les qual
 
 .Critères d'acceptation
 - `reviewPr` prend une PR GitHub (numéro ou URL) et analyse le diff
-- L'IA (deepseek-v4-pro) lit le diff et produit un rapport structuré
+- L'IA (gpt-oss:120b-cloud) lit le diff et produit un rapport structuré
 - Le rapport couvre : anomalies, suggestions, secrets, patterns, DAG
 - Le rapport est posté en commentaire sur la PR
 
