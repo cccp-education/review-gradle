@@ -1,0 +1,35 @@
+[versions]
+review = "0.0.1-SNAPSHOT"
+kotlin = "2.3.20"
+junit-platform-launcher = "1.14.3"
+assertj = "3.25.3"
+mockito-kotlin = "6.2.3"
+mockito-jupiter = "5.23.0"
+cucumber = "7.34.3"
+junit-platform-suite = "1.14.3"
+slf4j = "2.0.17"
+logback = "1.5.32"
+
+[libraries]
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
+mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-junit-platform-engine = { module = "io.cucumber:cucumber-junit-platform-engine", version.ref = "cucumber" }
+cucumber-picocontainer = { module = "io.cucumber:cucumber-picocontainer", version.ref = "cucumber" }
+junit-platform-suite = { module = "org.junit.platform:junit-platform-suite", version.ref = "junit-platform-suite" }
+
+[bundles]
+cucumber = [
+    "cucumber-java",
+    "cucumber-junit-platform-engine",
+    "cucumber-picocontainer",
+    "junit-platform-suite",
+]
+
+[plugins]
+review = { id = "education.cccp.review", version.ref = "review" }

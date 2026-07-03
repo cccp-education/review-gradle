@@ -5,9 +5,9 @@ _Règles absolues_ : voir `AGENT.adoc`
 _DAG_ : N4 — Plugin Gradle de code review assistée par IA
 _Dépendance_ : langchain4j (LLM), GitHub API (PR access)
 
-_Dernière mise à jour_ : 2026-06-01 (Session 000 — Clôture)
-_Session terminée_ : 000 — Bootstrap gouvernance + cadrage architecture ✅
-_Prochaine session_ : 001 — Plugin Gradle stub (EPIC RVW-1)
+_Dernière mise à jour_ : 2026-07-03 (Session 001 — Plugin stub CNV-6 natif)
+_Session terminée_ : 001 — Plugin stub créé CNV-6 natif — 4 convention plugins education.cccp.build.* v0.0.1 appliquées dès la création, compileKotlin SUCCESS ✅ TERMINÉ
+_Prochaine session_ : 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré
 
 == Roadmap
 
@@ -15,7 +15,7 @@ _Prochaine session_ : 001 — Plugin Gradle stub (EPIC RVW-1)
 |===
 | EPIC | Description | Statut | Priorité
 | RVW-0 | Bootstrap gouvernance + cadrage architecture | ✅ TERMINÉ | P0
-| RVW-1 | Plugin Gradle stub + build structure | À faire | P0
+| RVW-1 | Plugin Gradle stub + build structure | ✅ TERMINÉ | P0
 | RVW-2 | reviewPr — analyse IA du diff + rapport structuré | À faire | P1
 | RVW-3 | reviewScore + reviewGate — score qualité + quality gates | À faire | P1
 | RVW-4 | reviewReport — rapport consolidé AsciiDoc | À faire | P2
@@ -41,7 +41,7 @@ _Prochaine session_ : 001 — Plugin Gradle stub (EPIC RVW-1)
 | New Orleans 🟢 | document-gradle | N2 | 000
 | Atlanta | agile-gradle | N4 | 000
 | Harlem | ticket-gradle | N4 | 000
-| Baltimore | review-gradle | N4 | 000
+| Baltimore | review-gradle | N4 | 001
 | Oakland | flow-gradle | N4 | 000
 | Philly | jhipster-gradle-plugins | N2 | 005
 | Bushwick 🟤 | bakery-gradle | N2 | 062

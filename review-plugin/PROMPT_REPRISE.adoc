@@ -1,21 +1,25 @@
 = PROMPT_REPRISE — review-gradle (Baltimore)
 
 == Mission en cours
-Session 001 — Plugin Gradle stub + build structure opérationnel (EPIC RVW-1).
+Session 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré.
 
-== Objectifs session 001
-- Créer `review-plugin/build.gradle.kts` (Kotlin DSL, plugin `java-gradle-plugin`)
-- Créer `ReviewPlugin.kt` + `ReviewExtension.kt` + `ReviewTask.kt` (classes placeholder)
-- `./gradlew :review-plugin:compileKotlin` doit passer
+== État actuel (post-session 001)
+- Plugin stub créé : `review-plugin/` avec 4 conventions CNV-6 natif (gradle-plugin + publishing + functional-test + cucumber)
+- Classes stub : ReviewPlugin.kt, ReviewExtension.kt, ReviewTask.kt
+- BUILD SUCCESS, validatePlugin SUCCESS
+- EPIC RVW-1 ✅ TERMINÉ (Plugin stub CNV-6 natif)
 
-== Contexte session 000 (terminée)
-- Projet créé : `review-gradle/` + `review-plugin/`
-- AGENT.adoc, BACKLOG.adoc, INDEX.adoc, structure gouvernance complète
-- Repo GitHub public : `cheroliv/review-gradle` (Apache 2.0)
-- EPIC RVW-0 ✅ TERMINÉ — Bootstrap gouvernance + cadrage architecture
+== Objectifs session 002
+- Implémenter `reviewPr` — analyse IA du diff GitHub + rapport structuré
+- Définir ReviewExtension (config : seuils, règles, modèle LLM)
+- Implémenter ReviewTask (récupération diff, appel LLM, génération rapport)
 
-== Prochaine session après 001
-Session 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré
+== Contexte session 001 (terminée)
+- 4 convention plugins education.cccp.build.* v0.0.1 appliquées dès la création
+- compileKotlin SUCCESS, build SUCCESS
+
+== Prochaine session après 002
+Session 003 — reviewScore + reviewGate (EPIC RVW-3) : score qualité + quality gates
 
 == Règles
 1. COMMITS/GIT — INTERDIT sans permission
