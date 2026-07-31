@@ -54,6 +54,21 @@ Cas d'usage :
 
 *RÉFÉRENCE* : Source canonique — `bakery-gradle/bakery-plugin/AGENT.adoc` section "Non-Répétition des Opérations Coûteuses — Loi de l'Économie d'Encre" (Session 153). Portée transverse : 10 boroughs LLM metered. Potentiel 50-80% d'économie LLM sur le pipeline MVP0 complet.
 
+== Conventions Plugins (ABIDJAN N0)
+
+Review consomme les convention plugins centralises `education.cccp.build` v0.0.3 (stub CNV-6 natif) :
+
+[cols="2,5"]
+|===
+| Plugin ID | Role
+| `education.cccp.build.gradle-plugin` | java-gradle-plugin + kotlin-jvm + test JUnit + withSourcesJar/JavadocJar + mavenLocal + deps junit test
+| `education.cccp.build.publishing` | POM Maven Central + signing conditionnel + relocation + publicationType
+| `education.cccp.build.functional-test` | Source set functionalTest + GradleTestKit + task + check.dependsOn
+| `education.cccp.build.cucumber` | Source set features/scenarios + cucumberTest task + exclusion jupiter
+|===
+
+Ces 4 plugins sont appliques des la creation du stub (CNV-6 natif), zero redondance de build.
+
 == Tâches Principales
 
   ./gradlew reviewPr               → analyser une PR (diff + contexte)
