@@ -1,6 +1,6 @@
 [versions]
 review = "0.0.1-SNAPSHOT"
-kotlin = "2.3.20"
+kotlin = "2.4.10"
 junit-platform-launcher = "1.14.3"
 assertj = "3.25.3"
 mockito-kotlin = "6.2.3"
