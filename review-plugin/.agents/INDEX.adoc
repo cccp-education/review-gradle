@@ -52,3 +52,7 @@ _Prochaine session_ : 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rappo
 | Liberty 🗽 | api-key-pool-gradle | N0 | 002
 | ALGER 🟡 | dashboard-gradle | N3 | 000
 |===
+
+== Session 001 — JitPack mirror (CNV-16)
+
+Aucune publication JitPack (0.0.1-SNAPSHOT, non releaseable) ; settings shim uniquement. JitPack : n/a.
