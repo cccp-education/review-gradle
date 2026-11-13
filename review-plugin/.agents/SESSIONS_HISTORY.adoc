@@ -17,3 +17,9 @@ de CI. Rapport `.agents/sessions/002-cnv-17-jitpack-channel.adoc`.
 Aucune publication JitPack (0.0.1-SNAPSHOT, non releaseable) ; settings shim uniquement. JitPack : n/a. Shim `useModule` pour
 `education.cccp.build.*` (tag JitPack `0.0.15`). Rapport
 `review-plugin/.agents/sessions/001-jitpack-mirror.adoc`.
+
+== Session 003 — EAGER : publication JitPack canal unique — 2026-11-14
+
+Alignement EAGER : JitPack canal unique ; Maven Central/Sonatype et
+Gradle Plugin Portal **retirés**. Aucun code, aucun test, aucune
+publication. Rapport `.agents/sessions/003-eager-publication-jitpack-only.adoc`.
