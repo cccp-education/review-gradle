@@ -3,7 +3,14 @@
 | # | Date | Type | Sujet | Score
 | 000 | 2026-06-01 | bootstrap | RVW-0 — Bootstrap | ✅ TERMINÉ
 | 001 | 2026-07-03 | dev | Plugin stub créé CNV-6 natif — 4 convention plugins education.cccp.build.* v0.0.1 appliquées dès la création, compileKotlin SUCCESS | ✅ TERMINÉ
+| 002 | 2026-11-14 | publication | CNV-17 — JitPack canal unique (shim conventions `0.0.17`, SNAPSHOT non releaseable) | ✅ TERMINÉ
 |===
+
+== Session 002 — CNV-17 : JitPack canal unique — 2026-11-14
+
+`settings.gradle.kts` : shim `useModule` repointé sur le tag JitPack `0.0.17`
+(N0 `workspace-bom 0.0.136`). Aucune publication Maven (`0.0.1-SNAPSHOT`), pas
+de CI. Rapport `.agents/sessions/002-cnv-17-jitpack-channel.adoc`.
 
 == Session 001 — JitPack mirror (CNV-16) — 2026-11-09
 

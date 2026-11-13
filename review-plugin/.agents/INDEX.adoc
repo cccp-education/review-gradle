@@ -5,9 +5,9 @@ _Règles absolues_ : voir `AGENT.adoc`
 _DAG_ : N4 — Plugin Gradle de code review assistée par IA
 _Dépendance_ : langchain4j (LLM), GitHub API (PR access)
 
-_Dernière mise à jour_ : 2026-07-03 (Session 001 — Plugin stub CNV-6 natif)
-_Session terminée_ : 001 — Plugin stub créé CNV-6 natif — 4 convention plugins education.cccp.build.* v0.0.1 appliquées dès la création, compileKotlin SUCCESS ✅ TERMINÉ
-_Prochaine session_ : 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré
+_Dernière mise à jour_ : 2026-11-14 (Session 002 — CNV-17 JitPack canal unique)
+_Session terminée_ : 002 — CNV-17 : shim conventions `0.0.17` (JitPack), SNAPSHOT non releaseable
+_Prochaine session_ : 003 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré
 
 == Roadmap
 
@@ -56,3 +56,9 @@ _Prochaine session_ : 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rappo
 == Session 001 — JitPack mirror (CNV-16)
 
 Aucune publication JitPack (0.0.1-SNAPSHOT, non releaseable) ; settings shim uniquement. JitPack : n/a.
+
+== Session 002 — CNV-17 : JitPack canal unique
+
+Shim conventions repointé `0.0.17` (N0 `workspace-bom 0.0.136`) ; aucune
+publication Maven (`0.0.1-SNAPSHOT`), pas de CI. Rapport
+`.agents/sessions/002-cnv-17-jitpack-channel.adoc`.

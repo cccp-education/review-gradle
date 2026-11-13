@@ -1,0 +1,50 @@
+= Session 002 — CNV-17 : JitPack canal unique (review)
+:toc: left
+:icons: font
+
+:session: 002
+:date: 2026-11-14
+:type: cross-borough / publication JitPack
+:statut: TERMINÉE
+
+== Contexte
+
+Décision pilote S-045 (2026-11-13) : JitPack devient le **canal unique** des
+artefacts publics `education.cccp`. Maven Central (nmcp) et le Gradle Plugin
+Portal cessent d'être publiés pour `foundry/public/**` ; un artefact = un canal
+= un nom = une version. `foundry/private/**` et `office/**` restent inchangés.
+Cadrage : `conventions-gradle/conventions-plugin/.agents/CADRAGE_EPIC_CNV_17_JITPACK_PRIMARY.adoc`.
+
+== Changements
+
+* `settings.gradle.kts` : shim des conventions (`education.cccp.build.*`)
+  repointé sur le tag JitPack `0.0.17`
+  (`useModule("com.github.cccp-education.conventions-gradle:conventions-plugin:0.0.17")`).
+* N0 amont : `workspace-bom 0.0.136` + `conventions-plugin 0.0.17`.
+* Aucune autre modification : le borough reste en `0.0.1-SNAPSHOT` (non
+  releaseable), pas de CI. Aucun test local (Local = Build, Tests = CI).
+
+== Preuves
+
+|===
+| Élément | Statut
+| CI du dépôt | n/a (aucun workflow de test)
+| Publication Maven | n/a (`0.0.1-SNAPSHOT`, non releaseable)
+| Shim conventions `0.0.17` | ✅ aligné sur le canal JitPack
+| Double canal `education.cccp:*` | ✅ aucun
+|===
+
+== Fichiers touchés
+
+* `settings.gradle.kts` — tag JitPack `0.0.17`.
+* Gouvernance : `.agents/sessions/002-cnv-17-jitpack-channel.adoc`,
+  `.agents/SESSIONS_HISTORY.adoc`, `.agents/INDEX.adoc`,
+  `PROMPT_REPRISE.adoc`, `BACKLOG.adoc`.
+
+== Points d'attention et suite
+
+* Une version `-SNAPSHOT` n'entre pas dans la règle « version = tag » ; elle
+  devra devenir une release avant toute publication. Le shim JitPack n'est
+  qu'une **résolution de build**.
+* **Suite** — maintenance (stub + SNAPSHOT) ; reprise fonctionnelle ultérieure
+  = RVW-2 (`reviewPr`), hors périmètre CNV-17.

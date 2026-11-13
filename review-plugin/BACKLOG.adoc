@@ -80,3 +80,8 @@ produit un rapport structuré, vérifie les conventions du workspace et les qual
 * L'IA assiste, NE REMPLACE PAS le reviewer humain — l'approval PR reste obligatoire
 * GITHUB_TOKEN obligatoire en env var
 * Peut être invoqué comme GitHub Action ou en local via Gradle CLI
+
+== Session 002 — CNV-17 (JitPack canal unique)
+
+Shim conventions `0.0.17` (N0 `workspace-bom 0.0.136`) ; aucune publication Maven ;
+CI n/a. Rapport `.agents/sessions/002-cnv-17-jitpack-channel.adoc`.

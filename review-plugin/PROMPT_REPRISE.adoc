@@ -1,27 +1,40 @@
 = PROMPT_REPRISE — review-gradle (Baltimore)
+:session: 003
 
 == Mission en cours
-Session 002 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré.
 
-== État actuel (post-session 001)
-- Plugin stub créé : `review-plugin/` avec 4 conventions CNV-6 natif (gradle-plugin + publishing + functional-test + cucumber)
+Session 003 — reviewPr (EPIC RVW-2) : analyse IA du diff + rapport structuré.
+
+== Contexte
+
+* Session 000 (2026-06-01) : bootstrap gouvernance (RVW-0 ✅).
+* Session 001 (2026-07-03) : plugin stub CNV-6 natif (RVW-1 ✅).
+* Session 002 (2026-11-14) : **CNV-17 JitPack canal unique** — shim conventions
+  repointé `0.0.17` (N0 `workspace-bom 0.0.136`). Aucune publication
+  (`0.0.1-SNAPSHOT`), pas de CI. Rapport
+  `.agents/sessions/002-cnv-17-jitpack-channel.adoc`.
+
+== État actuel (post-session 002)
+
+- Plugin stub : `review-plugin/` avec 4 conventions CNV-6 natif
 - Classes stub : ReviewPlugin.kt, ReviewExtension.kt, ReviewTask.kt
-- BUILD SUCCESS, validatePlugin SUCCESS
-- EPIC RVW-1 ✅ TERMINÉ (Plugin stub CNV-6 natif)
+- Version `0.0.1-SNAPSHOT` — **non releaseable** en l'état (règle CNV-17 D2 :
+  version = tag)
+- EPIC RVW-1 ✅ TERMINÉ
 
-== Objectifs session 002
+== Objectifs session 003
+
 - Implémenter `reviewPr` — analyse IA du diff GitHub + rapport structuré
 - Définir ReviewExtension (config : seuils, règles, modèle LLM)
 - Implémenter ReviewTask (récupération diff, appel LLM, génération rapport)
 
-== Contexte session 001 (terminée)
-- 4 convention plugins education.cccp.build.* v0.0.1 appliquées dès la création
-- compileKotlin SUCCESS, build SUCCESS
+== Prochaine session après 003
 
-== Prochaine session après 002
-Session 003 — reviewScore + reviewGate (EPIC RVW-3) : score qualité + quality gates
+Session 004 — reviewScore + reviewGate (EPIC RVW-3).
 
 == Règles
-1. COMMITS/GIT — INTERDIT sans permission
+
+1. COMMITS/GIT — AUTORISÉS (décision pilote 2026-11-11)
 2. ZERO secret en dur (GITHUB_TOKEN env var)
 3. REVIEW IA ASSISTE, NE REMPLACE PAS HUMAIN
+4. Local = Build, Tests = CI ; publication = JitPack (canal unique)
